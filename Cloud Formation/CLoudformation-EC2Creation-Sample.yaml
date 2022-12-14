@@ -6,7 +6,7 @@ Resources:
     Properties: 
       ImageId: ami-074dc0a6f6c764218
       InstanceType: t2.micro
-      KeyName: Key-Practice-Instance-Mumbai
+      KeyName: Key-For
 Outputs:
   InstanceId:
     Description: InstanceId of the newly created EC2 instance
