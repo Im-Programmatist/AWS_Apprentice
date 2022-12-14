@@ -1,12 +1,11 @@
-YAML  -  yet another markup language
+# YAML  -  yet another markup language
 
-YAML is a digestible data serialization language often used to create configuration files with any programming language. 
-YAML is superset of json, so it can do everything that JSON can do and more.
+## YAML is a digestible data serialization language often used to create configuration files with any programming language. 
+## YAML is superset of json, so it can do everything that JSON can do and more.
 
-Main COmponents of YAML are -
+## Main COmponents of YAML are -
 
-1. YAML Key - Value Pair : just like json, yaml has key value pair to be used 'key:value',
-            This yaml file supports all kind of data types like integer, float, string, boolean, date(ISO format) etc. We can pass multiple words in single quotes and if have special character like bracket[]{},\ in string and sentence then it must be pass with double quotes.
+**1. YAML Key - Value Pair : just like json, yaml has key value pair to be used 'key:value',            This yaml file supports all kind of data types like integer, float, string, boolean, date(ISO format) etc. We can pass multiple words in single quotes and if have special character like bracket[]{},\ in string and sentence then it must be pass with double quotes.**
 
 2. YAML List/Array - List intend with dash, dash indicates that it's element of an array, all members of 
             list starts with dash(-), There are 2 sequences to write list
@@ -81,7 +80,6 @@ Main COmponents of YAML are -
                         postal_code
                         (this all will print like single line - Post, village Tq, dist state, country,  postal_code )
 
-8. YAML Comments - comments are make using '#'
+**8. YAML Comments - comments are make using '#'**
 
-9. YAML Indentation - this all file carry strict indentation which is may be 2 spaces or 4 spaces(tab) 
-            but we must follow the indentation. Spacing is very important in YAML.
+**9. YAML Indentation - this all file carry strict indentation which is may be 2 spaces or 4 spaces(tab) but we must follow the indentation. Spacing is very important in YAML.**
