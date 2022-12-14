@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  DevEC2Instance:
+    Type: 'AWS::EC2::Instance'
+    DeletionPolicy: 'Retain'
+    Properties: 
+      ImageId: ami-074dc0a6f6c764218
+      InstanceType: t2.micro
+      KeyName: Key-Practice-Instance-Mumbai
+Outputs:
+  InstanceId:
+    Description: InstanceId of the newly created EC2 instance
+    Value:
+      Ref: DevEC2Instance
+  AZ:
+    Description: Availability Zone of the newly created EC2 instance
+    Value:
+      Fn::GetAtt:
+      - DevEC2Instance
+      - AvailabilityZone
+  PublicDNS:
+    Description: Public DNSName of the newly created EC2 instance
+    Value:
+      Fn::GetAtt:
+      - DevEC2Instance
+      - PublicDnsName
+  PublicIP:
+    Description: Public IP address of the newly created EC2 instance
+    Value:
+      Fn::GetAtt:
+      - DevEC2Instance
+      - PublicIp
+
+
