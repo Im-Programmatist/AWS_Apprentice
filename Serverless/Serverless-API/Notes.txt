@@ -1,0 +1,46 @@
+1. Serverless Offline 
+ $ npm install serverless-offline
+ ---> then test particular function - 
+ $ serverless invoke local --function demoFunc
+ $ serverless offline start
+
+2. 
+You are about to give API Gateway permission to invoke your Lambda function:
+arn:aws:lambda:ap-south-1:609088496770:function:demo-lambda-function
+
+
+https://www.qloudx.com/building-a-swagger-ui-for-your-api-in-aws-api-gateway/
+
+
+***https://www.qloudx.com/building-a-swagger-ui-for-your-api-in-aws-api-gateway/
+https://serverlessrepo.aws.amazon.com/applications/ap-south-1/324900372515/aws-api-gateway-swagger-ui
+https://github.com/HarishKM7/aws-api-gateway-swagger-ui/blob/main/template.yaml
+
+
+*** https://medium.com/nirman-tech-blog/swagger-ui-for-aws-api-gateway-endpoints-a667f25f5a4b
+- AWS API Gateway doesn’t give any kind of endpoint to integrate with Swagger. 
+- It needs some kind of tweaks to integrate it.
+- Setup swagger on S3, integrate it with API Gateway and see how we overcame this problem.
+- Major reason to host swagger on S3 is we can host static websites on S3 for one to two dollars a month 
+  and scale to handle millions of users.
+- https://github.com/swagger-api/swagger-ui/releases -- swagger ui release zip
+https://pastebin.com/mw178AjH  --shell file
+
+*** https://towardsaws.com/access-swagger-ui-in-aws-lambda-via-api-gateway-deployed-with-the-serverless-framework-d80268ef1d79
+
+https://scratchpad.blog/serverless/howto/configure-aws-api-gateway-with-swagger/
+
+https://swagger.io/blog/api-development/introducing-the-amazon-api-gateway-integration/
+SwaggerHub has two API Gateway Integrations available –
+- Amazon API Gateway
+- Amazon API Gateway Lambda Sync
+
+https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api-with-console.html
+
+/**Create Lambda With HTTP Request **/
+https://betterprogramming.pub/aws-tutorial-about-node-js-lambda-external-https-requests-logging-and-analyzing-data-e73137fd534c
+
+https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html
+
+/**Deploye Lambda **/
+https://docs.aws.amazon.com/lambda/latest/dg/nodejs-package.html

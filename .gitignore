@@ -1,0 +1,14 @@
+# Dependency directories
+node_modules/
+
+Serverless/first-serverless-app/node_modules/
+Serverless/first-serverless-app/node_modules
+./Serverless/first-serverless-app/node_modules/
+
+Serverless/Serverless-API/node_modules/
+./Serverless/Serverless-API/node_modules/
+Serverless/Serverless-API/node_modules
+
+Serverless/Swagger-Lambda/node_modules/
+./Serverless/Swagger-Lambda/node_modules/
+Serverless/Swagger-Lambda/node_modules

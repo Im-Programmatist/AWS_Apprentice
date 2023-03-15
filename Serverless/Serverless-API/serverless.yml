@@ -1,0 +1,31 @@
+service: demo-serverless
+
+frameworkVersion: '3'
+
+plugins: 
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-south-1
+
+functions:
+  demoFunc:
+    handler: handler.demoFunc
+    memorySize: 128
+    description: Submit candidate information and starts interview process.
+    events:
+      - http: 
+          path: test
+          method: get
+  userDetails:
+    handler: handler.userDetails
+    memorySize: 128
+    description: Submit candidate information and starts interview process.
+    events:
+      - http: 
+          path: test
+          method: get
+
