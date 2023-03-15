@@ -9,6 +9,6 @@ Serverless/Serverless-API/node_modules/
 ./Serverless/Serverless-API/node_modules/
 Serverless/Serverless-API/node_modules
 
-Serverless/Swagger-Lambda/node_modules/
-./Serverless/Swagger-Lambda/node_modules/
-Serverless/Swagger-Lambda/node_modules
+Swagger-Lambda/node_modules/
+./Swagger-Lambda/node_modules/
+Swagger-Lambda/node_modules
