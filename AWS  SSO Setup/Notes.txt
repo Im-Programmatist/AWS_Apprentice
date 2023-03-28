@@ -1,0 +1,13 @@
+https://www.miniorange.com/amazon-web-services-(aws)-single-sign-on-(sso)
+
+https://towardsthecloud.com/aws-organizations
+
+https://towardsthecloud.com/aws-scp-service-control-policies
+
+docker login -u AWS -p $(aws ecr get-login-password --region ap-south-1) 609088496770.dkr.ecr.ecr.ap-south-1.amazonaws.com
+
+https://yottabrain.org/blog/aws/configure-and-login-to-sso-using-cli-aws-profile/
+
+*** https://medium.com/@pushkarjoshi0410/how-to-set-up-aws-cli-with-aws-single-sign-on-sso-acf4dd88e056
+
+*** https://www.cloudquery.io/blog/how-to-setup-aws-cli-with-aws-sso
