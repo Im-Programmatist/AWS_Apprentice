@@ -12,3 +12,21 @@ Serverless/Serverless-API/node_modules
 Swagger-Lambda/node_modules/
 ./Swagger-Lambda/node_modules/
 Swagger-Lambda/node_modules
+
+1. Global Configuration & Packages/node_modules
+1. Global Configuration & Packages/.env
+
+2. Lambda-APIGateway-DemoApp/node_modules
+2. Lambda-APIGateway-DemoApp/.env
+
+3. Lambda-DynamoDB-Webpack-App/node_modules
+3. Lambda-DynamoDB-Webpack-App/.env
+
+4. Lambda-API-SNS/node_modules
+4. Lambda-API-SNS/.env
+
+5. Lambda-S3-APIGateway/node_modules
+5. Lambda-S3-APIGateway/.env
+
+6. S3-API-IAM-Dynamo-Serverless-App/node_modules
+6. S3-API-IAM-Dynamo-Serverless-App/.env

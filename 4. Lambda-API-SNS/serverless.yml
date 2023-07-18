@@ -1,0 +1,35 @@
+service: Lambda-APIGateway-SNS-Demo
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  memorySize: 2048
+  stage: dev
+  timeout: 15
+  region: ap-south-1
+
+functions:
+  app:
+    handler: handler.lmbdSNSHandlerFunction
+    url: true
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+    environment:
+      NODE_ENV: "Development"
+plugins:
+  - serverless-offline
+  - serverless-export-env
+custom:
+  serverless-offline:
+    noPrependStageInUrl: true
+
+		

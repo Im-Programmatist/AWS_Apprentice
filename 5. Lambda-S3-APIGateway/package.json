@@ -1,0 +1,24 @@
+{
+  "name": "5.-lambda-s3-apigateway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1401.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "serverless-export-env": "^2.2.0",
+    "serverless-http": "^3.2.0",
+    "serverless-iam-roles-per-function": "^3.2.0",
+    "serverless-offline": "^12.0.4",
+    "serverless-s3-sync": "^3.1.0",
+    "uuid": "^9.0.0"
+  }
+}

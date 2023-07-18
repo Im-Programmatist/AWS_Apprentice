@@ -1,0 +1,147 @@
+# This is demo app for iam role creation and assigning permission for s3 dynamo db and api from serverless yml
+service:  S3-SNS-SQS-API-IAM-Dynamo-App
+
+useDotenv: true
+
+custom:
+  dotenv:
+    path: .env
+
+plugins:
+  - serverless-offline
+  - serverless-export-env
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ${env:AWS_REGION}
+  stage: dev
+  timeout: 30
+  iam:
+    role:
+      name: s3-dynamo-sns-sqs-role
+  iamRoleStatements:
+    - Effect: Allow 
+      Action: 
+        - dynamodb:*
+        - s3:*
+        - execute-api:*
+        - sns:*
+        - sqs:*
+        - cloudfront:*
+      Resource: "*"
+  environment:
+    # AWS_REGION: ${env:AWS_REGION}
+    DYNAMODB_TABLE: ${env:DYNAMODB_TABLE}
+    S3_BUCKET_NAME: ${env:S3_BUCKET_NAME}
+    USER_TOPIC: ${env:USER_TOPIC}
+    USER_QUEUE: ${env:USER_QUEUE}
+functions:
+  getUsers:
+    handler: handler.getUserList
+    events:
+      - http:
+          path: users-list
+          method: GET
+          cors: true
+  getUser:
+    handler: handler.getUser
+    events:
+      - http:
+          path: users/{id}
+          method: GET
+          cors: true
+  createUser:
+    handler: handler.createUser
+    events:
+      - http:
+          path: users
+          method: POST
+          cors: true
+  deleteUser:
+    handler: handler.updateUser
+    events: 
+      - http:
+          path: users/{id}
+          method: PUT
+          cors: true
+  updateUsers: 
+    handler: handler.deleteUser
+    events:
+      - http:
+          path: users/{id}
+          method: DELETE
+          cors: true
+  uploadImage: 
+    handler: handler.uploadUserImage
+    events:
+      - http:
+          path: uploadImage
+          method: ANY
+          cors: true
+      - http:
+          path: uploadImage/{proxy+}
+          method: ANY
+          cors: true
+  fetchImage:
+    handler: handler.fetchUserImage
+    events:
+      - http:
+          path: fetchImage/{id}
+          method: GET
+          cors: true
+resources:
+  Resources:
+    UserTable: 
+      Type: AWS::DynamoDB::Table
+      Properties: 
+        TableName: user-table
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5 
+    UserFilesBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:provider.environment.S3_BUCKET_NAME}
+    UserTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: ${self:provider.environment.USER_TOPIC}
+    UserQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: ${self:provider.environment.USER_QUEUE}
+    CloudFrontDistribution:
+      Type: AWS::CloudFront::Distribution
+      Properties:
+        DistributionConfig:
+          Origins:
+            - DomainName:
+                Fn::Sub: ${UserFilesBucket}.s3.amazonaws.com
+              Id: user-files-origin
+              S3OriginConfig:
+                OriginAccessIdentity: ''
+          Enabled: true
+          DefaultCacheBehavior:
+            TargetOriginId: user-files-origin
+            ForwardedValues:
+              QueryString: false
+            ViewerProtocolPolicy: redirect-to-https
+          PriceClass: PriceClass_100
+    CognitoUserPool:
+      Type: AWS::Cognito::UserPool
+      Properties:
+        UserPoolName: monolithic-user-pool
+    CognitoUserPoolClient:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        ClientName: monolithic-user-pool-client
+        UserPoolId:
+          Ref: CognitoUserPool
+        GenerateSecret: false

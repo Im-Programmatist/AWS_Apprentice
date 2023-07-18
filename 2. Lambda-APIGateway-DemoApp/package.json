@@ -1,0 +1,19 @@
+{
+  "name": "2.-serverless-app-demo",
+  "version": "1.0.0",
+  "description": "to test post api and save data in db\r ## 7. Invoking Functions Locally and Remotely - $ sls invoke local -f function-name -p event.json\r ## 8. $ sls logs -f candidateDetails -t  ----> Tailing the Logs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "sls offline start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1395.0",
+    "express": "^4.18.2",
+    "serverless-http": "^3.2.0",
+    "serverless-offline": "^12.0.4"
+  }
+}

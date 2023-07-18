@@ -1,0 +1,29 @@
+{
+  "name": "3.-lambda-dynamodb-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serverless offline start --noPrependStage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1396.0",
+    "babel": "^6.23.0",
+    "babel-core": "^4.7.16",
+    "babel-loader": "^9.1.2",
+    "express": "^4.18.2",
+    "serverless-http": "^3.2.0",
+    "serverless-offline": "^12.0.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.5",
+    "serverless-webpack": "^5.11.0",
+    "webpack": "^5.86.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
