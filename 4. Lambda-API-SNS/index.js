@@ -39,7 +39,7 @@ app.get('/send-email/:subject?/:body?/:email?', async(req, res) => {
 app.get('/send-sms/:msg?/:number?', (req, res) => {
 	const params = {
 		Message: req.params.msg || 'Hello, this is an SMS notification!',
-		PhoneNumber: req.params.number || '+919527364127',
+		PhoneNumber: req.params.number || process.env.MobileNumber,
 		// TopicArn: process.env.SNSTopicArn,
 		MessageAttributes: {
 			'AWS.SNS.SMS.SMSType': { DataType: 'String', StringValue: 'Transactional' }
@@ -66,7 +66,7 @@ app.get('/send-promotional-sms/:msg?/:number?', (req, res) => {
   
 	const params = {
 		Message: req.params.msg || 'Hello, this is a promotional SMS notification!',
-		PhoneNumber: req.params.number || '+919527364127',
+		PhoneNumber: req.params.number || process.env.MobileNumber,
 		MessageAttributes: {
 			'AWS.SNS.SMS.SMSType': { DataType: 'String', StringValue: 'Promotional' }
 		}
